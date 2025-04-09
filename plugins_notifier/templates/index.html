@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>🔔 通知中心</title>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        h2 {
+            color: #333;
+        }
+        ul#messages {
+            list-style: none;
+            padding: 0;
+        }
+        ul#messages li {
+            background: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .log {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🔔 实时通知中心</h2>
+    <div class="log" id="log"></div>
+    <h3>消息列表: </h3>
+    <ul id="messages"></ul>
+
+    <script>
+        const socket = io("http://localhost:5001");  // 明确指定地址端口（防止前端不识别）
+
+        // 连接成功日志
+        socket.on("connect", () => {
+            console.log("✅ WebSocket 已连接");
+            document.getElementById("log").innerText = "✅ WebSocket 已连接";
+        });
+
+        // 收到后端发送的通知事件
+        socket.on("notify", (data) => {
+            console.log("📥 收到通知：", data);
+            const li = document.createElement("li");
+            li.textContent = `[${data.title}] ${data.message}`;
+            document.getElementById("messages").appendChild(li);
+        });
+
+        // 出错日志
+        socket.on("connect_error", (err) => {
+            console.error("❌ WebSocket 连接失败:", err.message);
+            document.getElementById("log").innerText = "❌ WebSocket 连接失败: " + err.message;
+        });
+    </script>
+
+</body>
+</html>
