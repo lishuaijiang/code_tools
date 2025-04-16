@@ -1,0 +1,70 @@
+- display_name: 系统管理
+  code: system_manage
+  type: menu
+  url: null
+  children:
+    - display_name: 用户管理
+      code: user_manage
+      type: button
+      url: null
+      children:
+        - display_name: 用户列表
+          code: user_list
+          type: api
+          url: "[GET]/api/v1/users"
+          children: null
+        - display_name: 创建用户
+          code: create_user
+          type: api
+          url: "[POST]/api/v1/users"
+          children: null
+        - display_name: 查询用户
+          code: user_detail
+          type: api
+          url: "[GET]/api/v1/users/<user_id>"
+          children: null
+        - display_name: 编辑用户
+          code: edit_user
+          type: api
+          url: "[PUT]/api/v1/users/<user_id>"
+          children: null
+        - display_name: 删除用户
+          code: delete_user
+          type: api
+          url: "[DELETE]/api/v1/users/<user_id>"
+          children: null
+    - display_name: 角色管理
+      code: role_manage
+      type: button
+      url: null
+      children:
+        - display_name: 角色列表
+          code: role_list
+          type: api
+          url: "[GET]/api/v1/roles"
+          children: null
+        - display_name: 创建角色
+          code: create_role
+          type: api
+          url: "[POST]/api/v1/roles"
+          children: null
+        - display_name: 编辑角色
+          code: edit_role
+          type: button
+          url: null
+          children:
+            - display_name: 修改名称
+              code: edit_name
+              type: api
+              url: "[PUT]/api/v1/roles/<role_id>"
+              children: null
+            - display_name: 设置权限
+              code: set_permissions
+              type: api
+              url: "[POST]/api/v1/roles/<role_id>/set_permissions"
+              children: null
+        - display_name: 删除角色
+          code: delete_role
+          type: api
+          url: "[DELETE]/api/v1/roles/<role_id>"
+          children: null
