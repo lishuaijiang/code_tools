@@ -3,7 +3,7 @@
 目的：将`code_tools`添加到 Python 的 `sys.path` 中
 
 方式一（推荐）：运行指定项目之前手动将`PYTHONPATH`导入到环境变量中  
-**注意：是code_tools的绝对路径不是子项目的路径**
+**注意：是`code_tools`的绝对路径不是子项目的路径**
 ```
 export PYTHONPATH="/absolute/path/of/your/code_tools:$PYTHONPATH"
 ```
