@@ -1,5 +1,5 @@
 ## 运行/调试说明
-1. 创建独立虚拟环境并安装依赖库
+**1. 创建独立虚拟环境并安装依赖库**
 ```bash
 cd code_tools/
 python3 -m venv plugins_notifier/venv/
@@ -7,11 +7,11 @@ source plugins_notifier/venv/bin/activate
 python3 -m pip install -r plugins_notifier/requirements.txt
 ```
 
-2. 修改环境变量
+**2. 修改环境变量**  
 目的：将`code_tools`添加到 Python 的 `sys.path` 中
 
-方式一（推荐）：运行指定项目之前手动将`PYTHONPATH`导入到环境变量中
-注意：是`code_tools`的绝对路径不是子项目的路径
+方式一（推荐）：运行指定项目之前手动将`PYTHONPATH`导入到环境变量中  
+**注意：是`code_tools`的绝对路径不是子项目的路径**
 ```
 export PYTHONPATH="/absolute/path/of/your/code_tools:$PYTHONPATH"
 ```
