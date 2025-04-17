@@ -34,8 +34,8 @@ _add_root_path()
 export PYTHONPATH="/absolute/path/of/your/code_tools:$PYTHONPATH"
 ```
 
-**3. 运行**（进入项目目录中运行）
+**3. 运行**
 ```
-cd plugins_notifier/
+# 确保在`plugins_notifier`目录下，且进入虚拟环境内
 python3 main.py
 ```
